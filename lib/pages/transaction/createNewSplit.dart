@@ -1,23 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:splitz/pages/authentication/widgets/FormInputWidget.dart';
+import 'package:splitz/utils/constants/colours.dart';
 import 'package:splitz/utils/constants/images.dart';
 import 'package:splitz/utils/constants/values.dart';
 import 'package:splitz/utils/helpers/HelperFunctions.dart';
 import 'package:splitz/widgets/formWidgets/CustomDropDown.dart';
 
-class Addtransaction extends StatefulWidget {
-  const Addtransaction({super.key});
+class Createnewsplit extends StatefulWidget {
+  const Createnewsplit({super.key});
 
   @override
-  State<Addtransaction> createState() => _AddtransactionState();
+  State<Createnewsplit> createState() => _CreatenewsplitState();
 }
 
-class _AddtransactionState extends State<Addtransaction> {
+class _CreatenewsplitState extends State<Createnewsplit> {
   @override
   Widget build(BuildContext context) {
     final isDark = Helperfunctions.isDarkMode(context);
     return Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          backgroundColor: isDark
+              ? CustomColours.darkBackground
+              : CustomColours.lightSurface,
+        ),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -58,7 +63,7 @@ class _AddtransactionState extends State<Addtransaction> {
                             values: CustomValues.icons,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 8,
                         ),
                         Expanded(
@@ -70,20 +75,20 @@ class _AddtransactionState extends State<Addtransaction> {
                         ),
                       ],
                     ),
-                    FormInputWidget(
-                      isDark: isDark,
-                      prefixIcon: Icons.colorize,
-                      labelText: "Colours",
-                      horizontal: 15,
-                      vertical: 15,
+                    const SizedBox(
+                      height: 8,
                     ),
-                    FormInputWidget(
-                      isDark: isDark,
-                      prefixIcon: Icons.share,
-                      labelText: "Share?",
-                      horizontal: 15,
-                      vertical: 15,
+                    Customdropdown(
+                      dropListName: "Select a colour",
+                      values: CustomValues.colours,
                     ),
+                    // FormInputWidget(
+                    //   isDark: isDark,
+                    //   prefixIcon: Icons.share,
+                    //   labelText: "Share?",
+                    //   horizontal: 15,
+                    //   vertical: 15,
+                    // ),
                     const SizedBox(height: 16.0),
                     SizedBox(
                       width: double.infinity,

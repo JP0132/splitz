@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:splitz/model/CardTracker.dart';
 import 'package:splitz/utils/constants/colours.dart';
 
 class CustomValues {
@@ -21,10 +22,38 @@ class CustomValues {
   ];
 
   static List<Map<String, Object>> colours = [
-    {"name": "blue", "colour": CustomColours.blueGradient},
-    {"name": "blue", "colour": CustomColours.yellowGradient},
-    {"name": "blue", "colour": CustomColours.redGradient},
-    {"name": "blue", "colour": CustomColours.greenGradient},
-    {"name": "blue", "colour": CustomColours.purpleGradient}
+    {"name": "Blue", "colour": CustomColours.blueGradient},
+    {"name": "Yellow", "colour": CustomColours.yellowGradient},
+    {"name": "Red", "colour": CustomColours.redGradient},
+    {"name": "Green", "colour": CustomColours.greenGradient},
+    {"name": "Purple", "colour": CustomColours.purpleGradient}
+  ];
+
+  static List<CardTracker> cardItemsData = [
+    CardTracker(
+      totalAmount: 5654.0,
+      createdAt: DateTime.now(),
+      listName: "Holiday 1",
+    ),
+    CardTracker(
+      totalAmount: 464.0,
+      createdAt: DateTime.now(),
+      listName: "Shopping Trip 2",
+    ),
+    CardTracker(
+      totalAmount: 464.0,
+      createdAt: DateTime.now(),
+      listName: "Shopping Trip 2",
+    ),
+    CardTracker(
+      totalAmount: 464.0,
+      createdAt: DateTime.now(),
+      listName: "Shopping Trip 2",
+    ),
+    CardTracker(
+      totalAmount: 464.0,
+      createdAt: DateTime.now(),
+      listName: "Shopping Trip 2",
+    ),
   ];
 }

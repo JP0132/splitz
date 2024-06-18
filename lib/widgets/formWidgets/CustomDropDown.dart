@@ -51,7 +51,7 @@ class _CustomdropdownState extends State<Customdropdown> {
               );
             } else if (value is Map<String, Object>) {
               return DropdownMenuItem<dynamic>(
-                value: value['colours'],
+                value: value,
                 child: Row(
                   children: [
                     Container(
@@ -62,7 +62,7 @@ class _CustomdropdownState extends State<Customdropdown> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
-                    SizedBox(width: 8),
+                    const SizedBox(width: 8),
                     Text(value['name'] as String),
                   ],
                 ), // Convert value to string

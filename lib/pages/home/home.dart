@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:splitz/model/CardTracker.dart';
+import 'package:splitz/pages/transaction/SplitPage.dart';
 import 'package:splitz/utils/constants/colours.dart';
 import 'package:splitz/utils/helpers/HelperFunctions.dart';
 import 'package:splitz/widgets/CardTrackerWidget.dart';
@@ -7,6 +9,13 @@ import 'package:splitz/widgets/CustomCircularContainer.dart';
 import 'package:splitz/widgets/CustomCurvedEdges.dart';
 import 'package:intl/intl.dart';
 import 'package:splitz/widgets/ListCard.dart';
+
+class SplitArguments {
+  final int id;
+  final String name;
+
+  SplitArguments(this.id, this.name);
+}
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -107,14 +116,23 @@ class HomePage extends StatelessWidget {
                   itemCount: cardItemsData.length,
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  itemBuilder: (_, index) => Padding(
-                    padding: const EdgeInsets.fromLTRB(8, 16, 8, 0),
-                    child: Listcard(
-                      totalSpent:
-                          "\$${cardItemsData[index].totalAmount.toString()}",
-                      dateCreated: Helperfunctions.getDateFormat(
-                          cardItemsData[index].createdAt),
-                      listName: cardItemsData[index].listName,
+                  itemBuilder: (_, index) => InkWell(
+                    onTap: () => Get.toNamed(
+                      '/split',
+                      arguments: SplitArguments(
+                        index,
+                        cardItemsData[index].listName,
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(8, 16, 8, 0),
+                      child: Listcard(
+                        totalSpent:
+                            "\$${cardItemsData[index].totalAmount.toString()}",
+                        dateCreated: Helperfunctions.getDateFormat(
+                            cardItemsData[index].createdAt),
+                        listName: cardItemsData[index].listName,
+                      ),
                     ),
                   ),
                 ),

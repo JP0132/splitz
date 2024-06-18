@@ -27,7 +27,7 @@ class _CardTrackerContainerState extends State<CardTrackerContainer> {
           width: 370,
           height: 190,
           decoration: BoxDecoration(
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 blurRadius: 6,
                 color: Color(0x4B1A1F24),
@@ -41,7 +41,7 @@ class _CardTrackerContainerState extends State<CardTrackerContainer> {
             borderRadius: BorderRadius.circular(8),
           ),
           child: Padding(
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -53,11 +53,13 @@ class _CardTrackerContainerState extends State<CardTrackerContainer> {
                   height: 44,
                   fit: BoxFit.cover,
                 ),
-                Text(
+                const Text(
                   'Balance',
+                  style: TextStyle(color: Colors.white),
                 ),
                 Text(
                   widget.totalSpent,
+                  style: TextStyle(color: Colors.white),
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 4),
@@ -67,9 +69,11 @@ class _CardTrackerContainerState extends State<CardTrackerContainer> {
                     children: [
                       Text(
                         widget.listName,
+                        style: TextStyle(color: Colors.white),
                       ),
                       Text(
                         widget.dateCreated,
+                        style: TextStyle(color: Colors.white),
                       ),
                     ],
                   ),
